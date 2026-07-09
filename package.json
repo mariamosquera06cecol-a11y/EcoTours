@@ -1,0 +1,28 @@
+{
+  "name": "cryptosphere",
+  "version": "1.0.0",
+  "description": "Simulador de Portafolio Crypto en Tiempo Real usando Node.js, WebSockets y MongoDB Atlas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "mongodb",
+    "atlas",
+    "websockets",
+    "crypto",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

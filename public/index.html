@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoTours — Reserva de Paseos y Aventuras Ecológicas</title>
+  <meta name="description"
+    content="Encuentra y reserva tus próximas excursiones y paseos ecológicos. Conexión en tiempo real con MongoDB Atlas.">
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- FontAwesome para Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- App Container -->
+  <div class="app-container">
+
+    <!-- HEADER -->
+    <header class="main-header">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <i class="fa-solid fa-compass"></i>
+        </div>
+        <div>
+          <h1>EcoTours</h1>
+          <p class="subtitle">MongoDB Live Database Sandbox</p>
+        </div>
+      </div>
+
+      <div class="status-controls">
+        <div id="badge-estado-bd" class="status-badge disconnected">
+          <span class="indicator-dot"></span>
+          <span id="texto-estado-bd">Conectando...</span>
+        </div>
+        <button id="btn-reiniciar-bd" class="btn btn-secondary" title="Vaciar base de datos y reiniciar">
+          <i class="fa-solid fa-rotate-left"></i> Limpiar BD
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2>Descubre Aventuras Inolvidables</h2>
+        <p>Explora playas vírgenes, caminatas ecológicas y cañones majestuosos. Reserva tu excursión ideal hoy mismo.
+        </p>
+        <a href="#seccion-formulario-reserva" class="btn btn-primary btn-large">
+          <i class="fa-solid fa-calendar-check"></i> Reservar Ahora
+        </a>
+      </div>
+    </section>
+
+    <!-- DASHBOARD GRID: Catálogo y Formulario -->
+    <div class="dashboard-grid">
+
+      <!-- COLUMNA IZQUIERDA: Destinos Disponibles -->
+      <div class="grid-left-col">
+        <section class="card glass-card">
+          <h2 class="card-title"><i class="fa-solid fa-map-location-dot"></i> Excursiones Disponibles</h2>
+
+          <div class="tours-grid">
+            <!-- TOUR CARD 1 -->
+            <div class="tour-card" data-tour="Parque Tayrona">
+              <div class="tour-header font-tayrona">
+                <span class="tour-badge">Playa & Selva</span>
+              </div>
+              <div class="tour-body">
+                <h3>Parque Tayrona</h3>
+                <p>Camina por senderos tropicales húmedos y relájate en playas de arena blanca y arrecifes
+                  espectaculares.</p>
+                <div class="tour-footer">
+                  <span class="price">$120.000 <small>COP / pers</small></span>
+                  <button class="btn btn-primary btn-sm btn-select-tour"
+                    data-tour-name="Parque Tayrona">Seleccionar</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- TOUR CARD 2 -->
+            <div class="tour-card" data-tour="Cañón del Chicamocha">
+              <div class="tour-header font-chicamocha">
+                <span class="tour-badge">Montaña & Aventura</span>
+              </div>
+              <div class="tour-body">
+                <h3>Cañón del Chicamocha</h3>
+                <p>Disfruta de vistas imponentes de uno de los cañones más profundos del mundo y sube a su teleférico
+                  único.</p>
+                <div class="tour-footer">
+                  <span class="price">$150.000 <small>COP / pers</small></span>
+                  <button class="btn btn-primary btn-sm btn-select-tour"
+                    data-tour-name="Cañón del Chicamocha">Seleccionar</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- TOUR CARD 3 -->
+            <div class="tour-card" data-tour="San Andrés Isla">
+              <div class="tour-header font-sanandres">
+                <span class="tour-badge">Playa & Descanso</span>
+              </div>
+              <div class="tour-body">
+                <h3>San Andrés Isla</h3>
+                <p>Navega por el mar de los siete colores, haz esnórquel en arrecifes coralinos y relájate bajo las
+                  palmeras.</p>
+                <div class="tour-footer">
+                  <span class="price">$180.000 <small>COP / pers</small></span>
+                  <button class="btn btn-primary btn-sm btn-select-tour"
+                    data-tour-name="San Andrés Isla">Seleccionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- COLUMNA DERECHA: Formulario de Reserva -->
+      <div class="grid-right-col" id="seccion-formulario-reserva">
+        <section class="card glass-card form-card">
+          <h2 class="card-title"><i class="fa-solid fa-edit"></i> Solicitar Información / Reserva</h2>
+
+          <form id="formulario-reserva" class="booking-form">
+            <div class="form-group">
+              <label for="campo-nombre"><i class="fa-solid fa-user"></i> Nombre Completo:</label>
+              <input type="text" id="campo-nombre" placeholder="Ej. Juan Pérez" required>
+            </div>
+
+            <div class="form-grid-fields">
+              <div class="form-group">
+                <label for="campo-correo"><i class="fa-solid fa-envelope"></i> Correo Electrónico:</label>
+                <input type="email" id="campo-correo" placeholder="juan@correo.com" required>
+              </div>
+              <div class="form-group">
+                <label for="campo-telefono"><i class="fa-solid fa-phone"></i> Celular:</label>
+                <input type="tel" id="campo-telefono" placeholder="3001234567">
+              </div>
+            </div>
+
+            <div class="form-grid-fields">
+              <div class="form-group">
+                <label for="campo-destino"><i class="fa-solid fa-map-pin"></i> Selecciona el Paseo:</label>
+                <select id="campo-destino" required>
+                  <option value="" disabled selected>-- Elige tu destino --</option>
+                  <option value="Parque Tayrona">Parque Tayrona - Playa</option>
+                  <option value="Cañón del Chicamocha">Cañón del Chicamocha - Aventura</option>
+                  <option value="San Andrés Isla">San Andrés Isla - Descanso</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="campo-personas"><i class="fa-solid fa-users"></i> Cantidad de Personas:</label>
+                <input type="number" id="campo-personas" value="1" min="1" max="20" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="campo-mensaje"><i class="fa-solid fa-message"></i> Requerimientos especiales /
+                Mensaje:</label>
+              <textarea id="campo-mensaje" rows="3"
+                placeholder="Ej. Necesitamos transporte desde el hotel..."></textarea>
+            </div>
+
+            <div id="mensaje-error-formulario" class="error-msg hidden"></div>
+
+            <button type="submit" id="btn-enviar-reserva" class="btn btn-primary btn-block btn-large-submit">
+              <i class="fa-solid fa-paper-plane"></i> Guardar en MongoDB
+            </button>
+          </form>
+        </section>
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN INFERIOR: Historial / Registro en tiempo real -->
+    <footer class="dashboard-footer-section">
+      <section class="card glass-card bookings-card">
+        <h2 class="card-title">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          Muro de Reservas en Vivo (Colección 'reservas' de MongoDB)
+        </h2>
+
+        <div class="bookings-list-container">
+          <div class="bookings-list-header">
+            <span>Cliente</span>
+            <span>Destino</span>
+            <span class="text-center">Personas</span>
+            <span>Mensaje</span>
+            <span class="text-right">Fecha / Hora de Registro</span>
+          </div>
+          <div id="lista-reservas" class="bookings-list-body">
+            <!-- Cargado dinámicamente -->
+            <div class="loading-state">
+              <i class="fa-solid fa-spinner fa-spin"></i> Conectando al registro de MongoDB...
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+
+  </div>
+
+  <!-- NOTIFICACIÓN FLOTANTE (TOAST) -->
+  <div id="notificacion-flotante" class="toast hidden">
+    <div class="toast-content">
+      <i class="fa-solid fa-circle-check" id="icono-notificacion"></i>
+      <span id="mensaje-notificacion">¡Reserva guardada con éxito en MongoDB!</span>
+    </div>
+  </div>
+
+  <!-- Lógica de la Aplicación -->
+  <script src="app.js"></script>
+</body>
+
+</html>

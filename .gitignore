@@ -1,0 +1,16 @@
+# Dependencias de Node.js
+node_modules/
+
+# Configuración local y credenciales privadas
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
