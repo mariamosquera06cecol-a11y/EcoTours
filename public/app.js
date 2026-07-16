@@ -18,6 +18,10 @@ const inputTelefono = document.getElementById('campo-telefono');
 const selectDestino = document.getElementById('campo-destino');
 const inputPersonas = document.getElementById('campo-personas');
 const inputMensaje = document.getElementById('campo-mensaje');
+const inputEvento = document.getElementById('campo-evento');
+const inputFecha = document.getElementById('campo-fecha');
+const inputHora = document.getElementById('campo-hora');
+const selectPiel = document.getElementById('campo-piel');
 
 const notificacionFlotante = document.getElementById('notificacion-flotante');
 const mensajeNotificacion = document.getElementById('mensaje-notificacion');
@@ -112,7 +116,7 @@ function conectarWebSocket() {
         // 2. Volver a pintar la lista
         renderizarListaReservas();
         // 3. Mostrar notificación en pantalla a todos los usuarios conectados
-        mostrarNotificacion(`¡Nueva reserva! ${mensaje.datos.nombre} reservó ${mensaje.datos.destino}.`);
+        mostrarNotificacion(`¡Nuevo servicio! ${mensaje.datos.nombre} solicitó ${mensaje.datos.destino}.`);
         break;
 
       case 'RESERVAS_REINICIADAS':
@@ -143,12 +147,16 @@ async function manejarEnvioFormulario(e) {
     telefono: inputTelefono.value,
     destino: selectDestino.value,
     personas: inputPersonas.value,
-    mensaje: inputMensaje.value
+    mensaje: inputMensaje.value,
+    evento: inputEvento ? inputEvento.value : undefined,
+    fecha: inputFecha ? inputFecha.value : undefined,
+    hora: inputHora ? inputHora.value : undefined,
+    piel: selectPiel ? selectPiel.value : undefined
   };
 
   // Bloquear botón de envío
   btnEnviarReserva.disabled = true;
-  btnEnviarReserva.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Registrando en MongoDB...';
+  btnEnviarReserva.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Registrando solicitud...';
 
   try {
     const res = await fetch('/api/reservar', {
@@ -160,13 +168,13 @@ async function manejarEnvioFormulario(e) {
     const datos = await res.json();
 
     if (res.ok && datos.success) {
-      mostrarNotificacion('¡Tu solicitud ha sido guardada en MongoDB!');
+      mostrarNotificacion('¡Tu solicitud de maquillaje ha sido guardada en MongoDB!');
       formularioReserva.reset();
       
       // Remover clase seleccionada de las tarjetas
       document.querySelectorAll('.tour-card').forEach(tarjeta => tarjeta.classList.remove('selected-active'));
     } else {
-      mostrarErrorFormulario(datos.error || 'No se pudo guardar la reserva.');
+      mostrarErrorFormulario(datos.error || 'No se pudo guardar la solicitud.');
     }
   } catch (err) {
     mostrarErrorFormulario('Error de red. Asegúrate de que el servidor esté activo.');
@@ -202,13 +210,21 @@ function renderizarListaReservas() {
     const fila = document.createElement('div');
     fila.className = 'booking-row';
     
-    // Asignar clase de estilo al destino
-    let claseDestino = 'dest-tayrona';
-    if (reserva.destino === 'Cañón del Chicamocha') claseDestino = 'dest-chicamocha';
-    if (reserva.destino === 'San Andrés Isla') claseDestino = 'dest-sanandres';
+    // Asignar clase de estilo según el servicio
+    let claseDestino = 'dest-day';
+    if (reserva.destino === 'Maquillaje de Noche') claseDestino = 'dest-night';
+    if (reserva.destino === 'Maquillaje para Novias') claseDestino = 'dest-bride';
 
     const nombreLimpio = escaparHTML(reserva.nombre);
-    const mensajeLimpio = reserva.mensaje ? escaparHTML(reserva.mensaje) : 'Sin requerimientos especiales';
+    let mensajeLimpio = reserva.mensaje ? escaparHTML(reserva.mensaje) : 'Sin requerimientos especiales';
+    // Añadir detalles del servicio (evento / fecha / hora / tipo de piel)
+    const detalles = [];
+    if (reserva.evento) detalles.push(`Evento: ${reserva.evento}`);
+    if (reserva.fecha) detalles.push(`Fecha: ${reserva.fecha}`);
+    if (reserva.hora) detalles.push(`Hora: ${reserva.hora}`);
+    if (reserva.piel) detalles.push(`Tipo de piel: ${reserva.piel}`);
+    const detallesEscapados = detalles.map(d => escaparHTML(d)).join(' | ');
+    if (detallesEscapados) mensajeLimpio = `${mensajeLimpio} — ${detallesEscapados}`;
     const fechaFormateada = formatearFechaHora(reserva.fecha);
 
     fila.innerHTML = `

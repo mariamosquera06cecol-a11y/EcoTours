@@ -1,18 +1,18 @@
 /* --- VARIABLES Y CONFIGURACIÓN --- */
 :root {
-  --bg-color: #0e1612; /* Fondo verde oscuro selvático profundo */
-  --bg-gradient: radial-gradient(circle at top right, #1b3024 0%, #0e1612 100%);
-  --panel-bg: rgba(26, 38, 32, 0.55);
-  --panel-border: rgba(255, 255, 255, 0.08);
-  --panel-border-hover: rgba(16, 185, 129, 0.35);
+  --bg-color: #1a0f12; /* Fondo cálido, base para tema maquillaje */
+  --bg-gradient: radial-gradient(circle at top right, #3b1f2b 0%, #1a0f12 100%);
+  --panel-bg: rgba(29, 15, 20, 0.6);
+  --panel-border: rgba(255, 255, 255, 0.06);
+  --panel-border-hover: rgba(214, 83, 130, 0.28);
   
-  --text-primary: #f3f4f6;
-  --text-secondary: #a7f3d0; /* Tono verde pálido muy elegante */
-  --text-muted: #84a98c;
+  --text-primary: #fff8f9;
+  --text-secondary: #f5c6d1; /* Rosa pálido para acentos */
+  --text-muted: #d7a3b1;
   
-  --accent-green: #10b981;
-  --accent-cyan: #06b6d4;
-  --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --accent-rose: #d6336c;
+  --accent-gold: #f6c85f;
+  --accent-gradient: linear-gradient(135deg, #d6336c 0%, #f6c85f 100%);
   
   --font-family: 'Outfit', sans-serif;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -94,7 +94,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.6rem;
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.45);
+  box-shadow: 0 0 25px rgba(214, 83, 130, 0.45);
 }
 
 .logo-area h1 {
@@ -209,8 +209,8 @@ body {
 
 /* HERO SECTION */
 .hero-section {
-  background: linear-gradient(to right, rgba(14, 22, 18, 0.9), rgba(14, 22, 18, 0.3)), 
-              url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');
+  background: linear-gradient(to right, rgba(26,12,16,0.85), rgba(26,12,16,0.25)), 
+              url('https://images.unsplash.com/photo-1543286386-83e38f0c2d3a?auto=format&fit=crop&w=1200&q=80');
   background-size: cover;
   background-position: center;
   border-radius: var(--border-radius);
@@ -324,20 +324,20 @@ body {
 /* Imagen de Destinos */
 .font-tayrona {
   background-image: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.1)), 
-                    url('https://images.unsplash.com/photo-1589519160732-57fc4e75b0b2?auto=format&fit=crop&w=300&q=80');
+                    url('https://images.unsplash.com/photo-1544126598-3f9f0b1d5d1b?auto=format&fit=crop&w=300&q=80');
 }
 .font-chicamocha {
   background-image: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.1)), 
-                    url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=300&q=80');
+                    url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80');
 }
 .font-sanandres {
   background-image: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.1)), 
-                    url('https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=300&q=80');
+                    url('https://images.unsplash.com/photo-1544117512-2e9f3f4b9c2b?auto=format&fit=crop&w=300&q=80');
 }
 
 .tour-badge {
-  background: rgba(16, 185, 129, 0.85);
-  color: white;
+  background: linear-gradient(90deg, rgba(214,83,130,0.95), rgba(246,200,95,0.95));
+  color: #2b0e12;
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
   font-size: 0.65rem;
@@ -389,11 +389,11 @@ body {
 
 /* Tarjeta Seleccionada de Forma Activa */
 .tour-card.selected-active {
-  border-color: var(--accent-green);
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+  border-color: var(--accent-rose);
+  box-shadow: 0 0 18px rgba(214,83,130,0.18);
 }
 
-/* --- FORMULARIO DE RESERVA --- */
+/* --- FORMULARIO DE SOLICITUD DE SERVICIO --- */
 .form-card {
   height: 100%;
 }
@@ -472,7 +472,7 @@ body {
   font-size: 0.85rem;
 }
 
-/* --- SECCIÓN HISTORIAL DE RESERVAS (MURO EN VIVO) --- */
+/* --- SECCIÓN HISTORIAL DE MAQUILLAJES (MURO EN VIVO) --- */
 .section-desc {
   font-size: 0.85rem;
   color: var(--text-muted);

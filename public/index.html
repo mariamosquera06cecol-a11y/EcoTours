@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoTours — Reserva de Paseos y Aventuras Ecológicas</title>
+  <title>MakeupStart — Servicios de Maquillaje y Belleza</title>
   <meta name="description"
-    content="Encuentra y reserva tus próximas excursiones y paseos ecológicos. Conexión en tiempo real con MongoDB Atlas.">
+    content="Solicita servicios profesionales de maquillaje. Agenda en tiempo real con MongoDB Atlas.">
   <!-- Google Fonts: Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,11 +27,11 @@
     <header class="main-header">
       <div class="logo-area">
         <div class="logo-icon">
-          <i class="fa-solid fa-compass"></i>
+          <i class="fa-solid fa-palette"></i>
         </div>
         <div>
           <h1>EcoTours</h1>
-          <p class="subtitle">MongoDB Live Database Sandbox</p>
+          <p class="subtitle">Agendador de servicios de maquillaje (Live)</p>
         </div>
       </div>
 
@@ -49,11 +49,12 @@
     <!-- HERO SECTION -->
     <section class="hero-section">
       <div class="hero-content">
-        <h2>CARLOS ANDRES FIGUEREDO CC 123456789</h2>
-        <p>Explora playas vírgenes, caminatas ecológicas y cañones majestuosos. Reserva tu excursión ideal hoy mismo.
+        <h2>Maria Isabel Mosquera CC 123456789 
+        </h2>
+        <p>Explora nuestros servicios profesionales: looks de día, noche y novias. Solicita tu sesión hoy mismo.
         </p>
         <a href="#seccion-formulario-reserva" class="btn btn-primary btn-large">
-          <i class="fa-solid fa-calendar-check"></i> Reservar Ahora
+          <i class="fa-solid fa-hand-sparkles"></i> Solicitar Ahora
         </a>
       </div>
     </section>
@@ -64,56 +65,53 @@
       <!-- COLUMNA IZQUIERDA: Destinos Disponibles -->
       <div class="grid-left-col">
         <section class="card glass-card">
-          <h2 class="card-title"><i class="fa-solid fa-map-location-dot"></i> Excursiones Disponibles</h2>
+          <h2 class="card-title"><i class="fa-solid fa-star"></i> Servicios de Maquillaje Disponibles</h2>
 
           <div class="tours-grid">
             <!-- TOUR CARD 1 -->
-            <div class="tour-card" data-tour="Parque Tayrona">
+            <div class="tour-card" data-tour="Maquillaje de Día">
               <div class="tour-header font-tayrona">
-                <span class="tour-badge">Playa & Selva</span>
+                <span class="tour-badge">Look Natural</span>
               </div>
               <div class="tour-body">
-                <h3>Parque Tayrona</h3>
-                <p>Camina por senderos tropicales húmedos y relájate en playas de arena blanca y arrecifes
-                  espectaculares.</p>
+                <h3>Maquillaje de Día</h3>
+                <p>Look fresco y natural, ideal para eventos diurnos y sesiones fotográficas.</p>
                 <div class="tour-footer">
                   <span class="price">$120.000 <small>COP / pers</small></span>
                   <button class="btn btn-primary btn-sm btn-select-tour"
-                    data-tour-name="Parque Tayrona">Seleccionar</button>
+                    data-tour-name="Maquillaje de Día">Seleccionar</button>
                 </div>
               </div>
             </div>
 
             <!-- TOUR CARD 2 -->
-            <div class="tour-card" data-tour="Cañón del Chicamocha">
+            <div class="tour-card" data-tour="Maquillaje de Noche">
               <div class="tour-header font-chicamocha">
-                <span class="tour-badge">Montaña & Aventura</span>
+                <span class="tour-badge">Glam & Elegancia</span>
               </div>
               <div class="tour-body">
-                <h3>Cañón del Chicamocha</h3>
-                <p>Disfruta de vistas imponentes de uno de los cañones más profundos del mundo y sube a su teleférico
-                  único.</p>
+                <h3>Maquillaje de Noche</h3>
+                <p>Look sofisticado y duradero para eventos nocturnos y ocasiones especiales.</p>
                 <div class="tour-footer">
                   <span class="price">$150.000 <small>COP / pers</small></span>
                   <button class="btn btn-primary btn-sm btn-select-tour"
-                    data-tour-name="Cañón del Chicamocha">Seleccionar</button>
+                    data-tour-name="Maquillaje de Noche">Seleccionar</button>
                 </div>
               </div>
             </div>
 
             <!-- TOUR CARD 3 -->
-            <div class="tour-card" data-tour="San Andrés Isla">
+            <div class="tour-card" data-tour="Maquillaje para Novias">
               <div class="tour-header font-sanandres">
-                <span class="tour-badge">Playa & Descanso</span>
+                <span class="tour-badge">Bodas & Eventos</span>
               </div>
               <div class="tour-body">
-                <h3>San Andrés Isla</h3>
-                <p>Navega por el mar de los siete colores, haz esnórquel en arrecifes coralinos y relájate bajo las
-                  palmeras.</p>
+                <h3>Maquillaje para Novias</h3>
+                <p>Servicio especializado de maquillaje para novias, con prueba previa y larga duración.</p>
                 <div class="tour-footer">
                   <span class="price">$180.000 <small>COP / pers</small></span>
                   <button class="btn btn-primary btn-sm btn-select-tour"
-                    data-tour-name="San Andrés Isla">Seleccionar</button>
+                    data-tour-name="Maquillaje para Novias">Seleccionar</button>
                 </div>
               </div>
             </div>
@@ -121,10 +119,10 @@
         </section>
       </div>
 
-      <!-- COLUMNA DERECHA: Formulario de Reserva -->
+      <!-- COLUMNA DERECHA: Formulario de Solicitud de Servicio -->
       <div class="grid-right-col" id="seccion-formulario-reserva">
         <section class="card glass-card form-card">
-          <h2 class="card-title"><i class="fa-solid fa-edit"></i> Solicitar Información / Reserva</h2>
+          <h2 class="card-title"><i class="fa-solid fa-edit"></i> Solicitar Información / Servicio de Maquillaje</h2>
 
           <form id="formulario-reserva" class="booking-form">
             <div class="form-group">
@@ -145,12 +143,47 @@
 
             <div class="form-grid-fields">
               <div class="form-group">
-                <label for="campo-destino"><i class="fa-solid fa-map-pin"></i> Selecciona el Paseo:</label>
+                <label for="campo-evento"><i class="fa-solid fa-gift"></i> Tipo de Evento (opcional):</label>
+                <select id="campo-evento">
+                  <option value="" selected>-- Ej. Boda, Fiesta, Sesión --</option>
+                  <option value="Boda">Boda</option>
+                  <option value="Fiesta">Fiesta</option>
+                  <option value="Sesión Fotográfica">Sesión Fotográfica</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="campo-fecha"><i class="fa-solid fa-calendar-day"></i> Fecha preferida:</label>
+                <input type="date" id="campo-fecha">
+              </div>
+            </div>
+
+            <div class="form-grid-fields">
+              <div class="form-group">
+                <label for="campo-hora"><i class="fa-solid fa-clock"></i> Hora preferida:</label>
+                <input type="time" id="campo-hora">
+              </div>
+              <div class="form-group">
+                <label for="campo-piel"><i class="fa-solid fa-face-smile"></i> Tipo de piel:</label>
+                <select id="campo-piel">
+                  <option value="" selected>-- Selecciona --</option>
+                  <option value="Normal">Normal</option>
+                  <option value="Seca">Seca</option>
+                  <option value="Mixta">Mixta</option>
+                  <option value="Grasa">Grasa</option>
+                  <option value="Sensitiva">Sensitiva</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-fields">
+              <div class="form-group">
+                <label for="campo-destino"><i class="fa-solid fa-map-pin"></i> Selecciona el Servicio:</label>
                 <select id="campo-destino" required>
-                  <option value="" disabled selected>-- Elige tu destino --</option>
-                  <option value="Parque Tayrona">Parque Tayrona - Playa</option>
-                  <option value="Cañón del Chicamocha">Cañón del Chicamocha - Aventura</option>
-                  <option value="San Andrés Isla">San Andrés Isla - Descanso</option>
+                  <option value="" disabled selected>-- Elige tu servicio --</option>
+                  <option value="Maquillaje de Día">Maquillaje de Día - Look Natural</option>
+                  <option value="Maquillaje de Noche">Maquillaje de Noche - Glam</option>
+                  <option value="Maquillaje para Novias">Maquillaje para Novias - Bodas</option>
                 </select>
               </div>
               <div class="form-group">
@@ -163,7 +196,7 @@
               <label for="campo-mensaje"><i class="fa-solid fa-message"></i> Requerimientos especiales /
                 Mensaje:</label>
               <textarea id="campo-mensaje" rows="3"
-                placeholder="Ej. Necesitamos transporte desde el hotel..."></textarea>
+                placeholder="Ej. Necesito prueba previa; soy alérgica a 'x' producto; prefiero tonos cálidos..."></textarea>
             </div>
 
             <div id="mensaje-error-formulario" class="error-msg hidden"></div>
@@ -182,13 +215,13 @@
       <section class="card glass-card bookings-card">
         <h2 class="card-title">
           <i class="fa-solid fa-clock-rotate-left"></i>
-          Muro de Reservas en Vivo (Colección 'reservas' de MongoDB)
+          Muro de Maquillajes en Vivo (Colección 'maquillajes' de MongoDB)
         </h2>
 
         <div class="bookings-list-container">
           <div class="bookings-list-header">
             <span>Cliente</span>
-            <span>Destino</span>
+            <span>Servicio</span>
             <span class="text-center">Personas</span>
             <span>Mensaje</span>
             <span class="text-right">Fecha / Hora de Registro</span>
